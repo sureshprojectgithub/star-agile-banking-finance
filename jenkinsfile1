@@ -41,5 +41,15 @@ pipeline {
      sh 'docker push 554716/newbankproject:latest'
              }
    }
+  stage ('Configure Test-server with Terraform'){
+            steps {
+                dir('deployments'){
+                sh 'sudo chmod 600 bhem.pem'
+                sh 'terraform init'
+                sh 'terraform validate'
+                sh 'terraform apply --auto-approve'
+                }
+          }
+   }
 }
 }
