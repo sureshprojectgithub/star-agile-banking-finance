@@ -24,5 +24,10 @@ pipeline {
     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/bankproject', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
                 }
     }
+    stage('image creation'){
+    steps {
+      sh 'docker build -t 554716/newbankproject:latest .'
+            }
+   } 
 }
 }
