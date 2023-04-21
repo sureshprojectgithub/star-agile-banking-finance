@@ -36,5 +36,10 @@ pipeline {
           }
       }
   }
+  stage('push the image to docker hub') {
+   steps {
+     sh 'docker push 554716/newbankproject:latest'
+             }
+   }
 }
 }
