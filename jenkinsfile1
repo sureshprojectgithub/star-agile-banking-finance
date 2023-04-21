@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+
+  tools {
+    maven 'MVN_HOME'
+    }
+  
+  stages {
+    stage('CheckOut') {
+      steps {
+        echo 'Checkout the source code from GitHub'
+        git 'https://github.com/sureshprojectgithub/star-agile-banking-finance.git'
+            }
+    }
+    stage('Package and Build App') {
+     steps {
+       echo 'Build and Package App'
+       sh 'mvn clean package'
+           }
+    }
+}
+}
